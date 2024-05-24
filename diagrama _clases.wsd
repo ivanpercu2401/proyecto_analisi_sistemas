@@ -1,0 +1,56 @@
+@startuml
+
+' Definición de clases
+
+class Usuario {
+  - nombre: String
+  - direccion: String
+  - telefono: String
+  - correo: String
+  + registrarUsuario()
+  + autenticarUsuario()
+}
+
+class Libro {
+  - titulo: String
+  - autor: String
+  - isbn: String
+  - editorial: String
+  - anioPublicacion: String
+  - categoria: String
+  + registrarLibro()
+  + actualizarLibro()
+}
+
+class Prestamo {
+  - usuario: Usuario
+  - libro: Libro
+  - fechaPrestamo: Date
+  - fechaDevolucionPrevista: Date
+  + registrarPrestamo()
+}
+
+class Devolucion {
+  - prestamo: Prestamo
+  - fechaDevolucion: Date
+  + registrarDevolucion()
+  + calcularMulta()
+}
+
+class Notificacion {
+  - usuario: Usuario
+  - mensaje: String
+  + enviarNotificacion()
+  + enviarRecordatorio()
+}
+
+' Relación entre las clases
+
+Usuario "1" -- "0..*" Prestamo : realiza
+Usuario "1" -- "0..*" Devolucion : realiza
+Libro "1" -- "0..*" Prestamo : esPrestadoEn
+Prestamo "1" -- "1" Devolucion : seConvierteEn
+Prestamo "0..*" -- "1" Notificacion : genera
+Devolucion "0..*" -- "1" Notificacion : genera
+
+@enduml
