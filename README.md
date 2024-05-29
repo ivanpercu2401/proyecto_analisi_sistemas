@@ -29,4 +29,67 @@
 **TRELLO LINK**
 **https://trello.com/b/p9vrVOW7/sistema-de-gestion-de-una-bliblioteca**
 
+**Diagrama de clases**
+
 ![diagra_clases](./diagrama%20_clases.png)
+
+**Descripción del Diagrama:**
+
+- Clases:
+
+- Usuario: Representa a los usuarios de la biblioteca con atributos como nombre, dirección, teléfono, email, nombre de usuario y contraseña. Métodos incluidos: registrar() y autenticar().
+
+- Bibliotecario: Representa a los bibliotecarios con atributos como nombre, nombre de usuario y contraseña. Métodos incluidos: autenticar().
+
+- Libro: Representa los libros en la biblioteca con atributos como título, autor, ISBN, editorial, año de publicación y categoría. Métodos incluidos: registrar() y actualizar().
+
+- Prestamo: Representa los préstamos de libros con atributos como fecha de préstamo, fecha de devolución prevista, fecha de devolución real y multa. Métodos incluidos: registrar() y registrarDevolucion().
+
+- Notificacion: Representa las notificaciones enviadas a los usuarios con atributos como tipo, mensaje y fecha de envío. Métodos incluidos: enviar().
+
+- Recordatorio: Representa los recordatorios enviados a los usuarios con atributos como mensaje y fecha de envío. Métodos incluidos: enviar().
+
+**Relaciones:**
+
+- Un Usuario puede realizar múltiples Préstamos.
+- Un Libro puede estar asociado a múltiples Préstamos.
+- Un Bibliotecario puede gestionar múltiples Préstamos y Libros.
+- Un Préstamo puede generar múltiples Notificaciones y Recordatorios.
+
+
+
+
+
+**Diagrama de secuencia**
+
+![diagra_secuencia](./diagrama_secuecia-1.png)
+![diagra_secuencia](./diagrama_secuecia-2.png)
+![diagra_secuencia](./diagrama_secuecia-3.png)
+![diagra_secuencia](./diagrama_secuecia.png)
+
+**Descripcion del diagrama**
+
+- Estos diagramas de secuencia detallan el flujo de interacción entre los actores (usuarios y bibliotecarios), el sistema de gestión de la biblioteca y otros componentes como la base de datos y el servicio de correo electrónico. Puedes ajustar y expandir estos diagramas según las necesidades específicas de tu proyecto y los casos de uso adicionales que desees incluir.
+
+
+
+**Diagrama de casos de uso**
+![diagra_casos_uso](./diagrama_casos_uso.png)
+
+**Descripción del Diagrama**
+
+- Actores
+
+- Usuario: Persona que utiliza la biblioteca para prestar y devolver libros.
+- Bibliotecario: Persona encargada de la gestión administrativa de la biblioteca.
+
+- Casos de Uso:
+
+- Registro de Usuarios (RU): Permite registrar nuevos usuarios.
+- Autenticación de Usuarios (AU): Permite a los usuarios iniciar sesión en el sistema.
+- Registro de Libros (RL): Permite la adición de nuevos libros al sistema.
+- Actualización de Información de Libros (AIL): Permite actualizar la información de los libros existentes.
+- Registro de Préstamos (RP): Permite registrar el préstamo de libros.
+- Registro de Devoluciones (RD): Permite registrar la devolución de libros y verificar multas.
+- Notificaciones de Préstamo y Devolución (NPD): Envía notificaciones a los usuarios cuando realizan un préstamo o una devolución.
+- Recordatorios de Devolución (RDV): Envía recordatorios automáticos a los usuarios sobre la fecha de devolución próxima.

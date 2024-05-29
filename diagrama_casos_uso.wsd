@@ -1,0 +1,32 @@
+@startuml
+
+actor Usuario
+actor Bibliotecario
+
+rectangle Sistema_de_Gestion_de_Biblioteca {
+    (Registro de Usuarios) as RU
+    (Autenticación de Usuarios) as AU
+    (Registro de Libros) as RL
+    (Actualización de Información de Libros) as AIL
+    (Registro de Préstamos) as RP
+    (Registro de Devoluciones) as RD
+    (Notificaciones de Préstamo y Devolución) as NPD
+    (Recordatorios de Devolución) as RDV
+}
+
+Usuario --> RU
+Usuario --> AU
+Usuario --> RP
+Usuario --> RD
+
+Bibliotecario --> RU
+Bibliotecario --> AU
+Bibliotecario --> RL
+Bibliotecario --> AIL
+Bibliotecario --> RP
+Bibliotecario --> RD
+
+NPD --> Usuario
+RDV --> Usuario
+
+@enduml

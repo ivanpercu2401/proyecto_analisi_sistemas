@@ -1,0 +1,61 @@
+@startuml
+actor Usuario
+actor Bibliotecario
+participant "Sistema de Gestión de Biblioteca" as SGB
+participant "Base de Datos" as DB
+
+Usuario -> SGB : Solicitar registro
+SGB -> Usuario : Solicitar datos de registro
+Usuario -> SGB : Enviar datos de registro
+SGB -> DB : Guardar datos de usuario
+DB --> SGB : Confirmación de guardado
+SGB -> Usuario : Confirmación de registro
+
+@enduml
+
+@startuml
+actor Usuario
+actor Bibliotecario
+participant "Sistema de Gestión de Biblioteca" as SGB
+participant "Base de Datos" as DB
+
+Usuario -> SGB : Iniciar sesión
+SGB -> DB : Verificar credenciales
+DB --> SGB : Credenciales válidas
+
+Usuario -> SGB : Solicitar préstamo de libro
+SGB -> DB : Verificar disponibilidad del libro
+DB --> SGB : Libro disponible
+SGB -> DB : Registrar préstamo
+DB --> SGB : Confirmación de préstamo
+SGB -> Usuario : Confirmación de préstamo
+
+@enduml
+
+@startuml
+participant "Sistema de Gestión de Biblioteca" as SGB
+participant "Base de Datos" as DB
+participant "Servicio de Correo" as EmailService
+actor Usuario
+
+SGB -> DB : Consultar préstamos próximos a vencer
+DB --> SGB : Lista de préstamos próximos a vencer
+SGB -> EmailService : Enviar recordatorio a usuarios
+EmailService -> Usuario : Enviar correo electrónico de recordatorio
+Usuario -> EmailService : Confirmación de recepción
+
+@enduml
+
+@startuml
+participant "Sistema de Gestión de Biblioteca" as SGB
+participant "Base de Datos" as DB
+participant "Servicio de Correo" as EmailService
+actor Usuario
+
+SGB -> DB : Consultar préstamos próximos a vencer
+DB --> SGB : Lista de préstamos próximos a vencer
+SGB -> EmailService : Enviar recordatorio a usuarios
+EmailService -> Usuario : Enviar correo electrónico de recordatorio
+Usuario -> EmailService : Confirmación de recepción
+
+@enduml
